@@ -134,3 +134,14 @@ alias flan="python ~/code/flan/flan/cmdline.py"
 export PATH="$PATH:/usr/local/go/bin"
 export GOROOT="/usr/local/go"
 alias go="/usr/local/go/bin/go"
+
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
+[ -f /opt/homebrew/bin/brew ] && eval $(/opt/homebrew/bin/brew shellenv)
+source "$HOME/.cargo/env"
+source ~/.bash_prompt
+alias grep="grep --color"
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+alias git-ll="git ls-tree -r --name-only"
+alias python=python3
