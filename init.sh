@@ -9,7 +9,7 @@ popd
 
 for fname in $files; do
     echo "Linking $fname"
-    ln -s "$dotfiles_dir/$fname" "$HOME/$fname"
+    ln -s -f "$dotfiles_dir/$fname" "$HOME/$fname"
 done
 
 
