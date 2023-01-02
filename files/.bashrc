@@ -39,7 +39,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lua=lua5.3
 alias python=python3
-alias subl="/mnt/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe" # sublime text
+alias subl="/mnt/c/Program\ Files/Sublime\ Text\ 3/sublime_text.exe" # sublime text wsl <-> windows
 alias git-ll="git ls-tree -r --name-only"
 
 # Add an "alert" alias for long running commands.  Use like so:
@@ -59,7 +59,7 @@ fi
 
 
 # rust
-source "$HOME/.cargo/env"
+[ -d "$HOME/.cargo" ] && source "$HOME/.cargo/env"
 
 # NVM configuration
 export NVM_DIR="$HOME/.nvm"
@@ -67,7 +67,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # ocaml configuration
-. /home/james/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+[ -d $HOME/.opam ] && . $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # go configuration
 export GOROOT="/usr/local/go"
@@ -77,10 +77,17 @@ export PATH="$PATH:/usr/local/go/bin"
 [ -f /opt/homebrew/bin/brew ] && eval $(/opt/homebrew/bin/brew shellenv)
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
-
 # haskell configuration
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
 
 
 # color prompt
 source ~/.bash_prompt
+
+
+# vulkan sdk on mac
+export VULKAN_SDK="$HOME/VulkanSDK/1.3.211.0/MoltenVK"
+
+# git configuration
+export GIT_SSH_COMMAND='ssh -i $HOME/.ssh/$GIT_KEY'
+export GIT_KEY=id_rsa
